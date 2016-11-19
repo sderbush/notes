@@ -1,0 +1,46 @@
+@startuml
+(View sections) as SV
+(View notes) as NVS
+(View note) as NV
+(Create note) as NC
+(Edit note) as NE
+(Add comment) as CA
+(View ignored followers) as VIU
+(Add user to ignore list) as AIU
+(View Profile) as PV
+(View user) as UV
+:Auth User: as AUser
+
+(View followers) as FR
+(View followers) as AFR
+(View following) as F
+(Add version tag) as AVT
+(Remove comments) as RC
+(Add Score) as SC
+(View rating) as RV
+
+User --> SV
+User --> NVS
+NVS --|> NV
+NV --|> SC
+NV --|> CA
+User --> UV
+UV ---|> FR
+UV ---|> F
+UV --|> RV
+
+AUser --> PV
+PV ---|> VIU
+VIU --|> AFR
+AIU <|- AFR
+AUser -> NC
+AUser --> NE
+AUser ..> CA : <<extend>>
+
+
+User <. AUser : <<extend>>
+
+NE --|> AVT
+NE ---|> RC
+
+@enduml
