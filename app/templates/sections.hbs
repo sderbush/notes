@@ -1,0 +1,12 @@
+<h2>Section</h2>
+
+<div class="container">
+  {{#each model as |section|}}
+    <div class="section">
+      <h2 class="section__title">{{#link-to 'section' section}}{{section.title}}{{/link-to}}</h2>
+      <div class="section__description">{{section.description}}</div>
+    </div>
+  {{/each}}
+</div>
+
+{{outlet}}
